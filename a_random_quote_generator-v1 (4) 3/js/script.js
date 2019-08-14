@@ -58,7 +58,19 @@ function printQuote() {
 
 printQuote ();
 
-
+  // this code checks to see if there's a citation and inserts if it's true
+  if(randomQuote.citation) {
+    htmlString += `<span class="citation">${randomQuote.citation}</span>`;
+  }
+  // this code checks to see if there's a year and inserts if true
+  if(randomQuote.year){
+    htmlString += `<span class="year">${randomQuote.year}</span>`;
+  }
+  if(randomQuote.tags){
+    //this code iterates through the tags list and inserts each one
+    for(tag of randomQuote.tags){
+      htmlString += `<span class="citation">${tag}</span>`;
+    }
 // this function is used to display a different background color randomly 
 
 function getRandomColor() {
