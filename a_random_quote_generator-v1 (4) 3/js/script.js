@@ -50,27 +50,36 @@ function getRandomQuote () {
 // this function will print my quotes to the webpage 
 
 function printQuote() {
-  string = getRandomQuote();
-  html = '<p class="quote">' + string.quote + '</p>' + '<p class ="source">' + string.source
-  html += '</p>';
-  document.getElementById('quote-box').innerHTML = html;
+  let result = getRandomQuote();
+  let message = "   ";
+
+  message +=
+    "<p class=  'quote'>"  +
+    result.quote +
+    "</p>  <p class=  'tags'>"   +
+    result.tags
+    "</p> <p class=  'year'>"  +
+    result.year
+
+    
+    " ";
+
+  if (result.tags) {
+    message += "<span class='tags'>" + result.tags + "</span>" + "</p>";
+  }
+
+  if (result.source) {
+    message += "<span class='source'>" + result.source + "</span>";
+  }
+  if (result.year) {
+    message += "<span class='year'>" + result.year + "</span>" + "</p>";
+  }
+
+  message += "</p>";
+
+  document.getElementById("quote-box").innerHTML = message;
 }
 
-printQuote ();
-
-  // this code checks to see if there's a citation and inserts if it's true
-  if(randomQuote.citation) {
-    htmlString += `<span class="citation">${randomQuote.citation}</span>`;
-  }
-  // this code checks to see if there's a year and inserts if true
-  if(randomQuote.year){
-    htmlString += `<span class="year">${randomQuote.year}</span>`;
-  }
-  if(randomQuote.tags){
-    //this code iterates through the tags list and inserts each one
-    for(tag of randomQuote.tags){
-      htmlString += `<span class="citation">${tag}</span>`;
-    }
 // this function is used to display a different background color randomly 
 
 function getRandomColor() {
@@ -106,6 +115,6 @@ document.getElementById('loadQuote').addEventListener("click", diffBackground, f
 
 
 // 
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-  
-  }
+
+
+document.getElementById('loadQuote').addEventListener("click", printQuote, false) 
