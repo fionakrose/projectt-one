@@ -56,16 +56,12 @@ function printQuote() {
   message +=
     "<p class=  'quote'>"  +
     result.quote +
-    "</p>  <p class=  'tags'>"   +
-    result.tags
-    "</p> <p class=  'year'>"  +
+    "</p> "
     result.year
-
-    
     " ";
-
-  if (result.tags) {
-    message += "<span class='tags'>" + result.tags + "</span>" + "</p>";
+    if (result.tags) {
+    for(var i=0; i <result.tags.length; i++) 
+message += "<span class='tags'>" + result.tags [i]+ "</span>" + "</p>";
   }
 
   if (result.source) {
@@ -79,6 +75,7 @@ function printQuote() {
 
   document.getElementById("quote-box").innerHTML = message;
 }
+
 
 // this function is used to display a different background color randomly 
 
